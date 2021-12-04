@@ -31,6 +31,7 @@ import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class PictureFrame extends JFrame{
+    private PicturePanel panCenter;
     public void setupMainMenu(){
         JMenuBar mbar = new JMenuBar();
         JMenu mnuFile = new JMenu("File");
@@ -40,22 +41,23 @@ public class PictureFrame extends JFrame{
         JMenuItem miSave = new JMenuItem("Save");
         JMenuItem miExit = new JMenuItem("Exit");
         mnuFile.add(miSave);
+        miSave.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                //stuff here
+            }
+        });
         mnuFile.add(miExit);
-        miExit.addActionListener(
-            new ActionListener(){
-                public void actionPerformed(ActionEvent e){
-                    System.exit(0);
-                }
+        miExit.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                System.exit(0);
             }
-        );
+        });
         JMenuItem miAbout = new JMenuItem("About");
-        miAbout.addActionListener(
-            new ActionListener(){
-                public void actionPerformed(ActionEvent e) {
-                    JOptionPane.showMessageDialog(null,"Created by Paula Grata in December 2021");
-                }
+        miAbout.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null,"Created by Paula Grata in December 2021");
             }
-        );
+        });
         mnuHelp.add(miAbout);
         setJMenuBar(mbar);
     }
@@ -73,13 +75,33 @@ public class PictureFrame extends JFrame{
         JButton btnSave = new JButton("Save");
         JButton btnNext = new JButton("Next");
         panSouth.add(btnPrev);
+        btnPrev.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                //stuff here
+            }
+        });
         panSouth.add(btnSave);
+        btnSave.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                //stuff here
+            }
+        });
         panSouth.add(btnNext);
+        btnNext.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                //stuff here
+            }
+        });
         c.add(panSouth,BorderLayout.SOUTH);
 
+        panCenter = new PicturePanel();
+        c.add(panCenter,BorderLayout.CENTER);
     }
-
+    
+    
+    
     public PictureFrame(){
         setupGUI();
     }
+
 }
