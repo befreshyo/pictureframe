@@ -52,7 +52,7 @@ public class PictureFrame extends JFrame{
         miAbout.addActionListener(
             new ActionListener(){
                 public void actionPerformed(ActionEvent e) {
-                    JOptionPane.showMessageDialog(null,"created by lala");
+                    JOptionPane.showMessageDialog(null,"Created by Paula Grata in December 2021");
                 }
             }
         );
@@ -61,7 +61,7 @@ public class PictureFrame extends JFrame{
     }
 
     public void setupGUI(){
-        setTitle("menu and mouse app");     //always assumes this.setTitle if it does not have an object followed by a dot
+        setTitle("Picture Frame");
         setBounds(100,100,290,400);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setupMainMenu();
@@ -69,7 +69,14 @@ public class PictureFrame extends JFrame{
         c.setLayout(new BorderLayout());
         JPanel panSouth = new JPanel();
         panSouth.setLayout(new FlowLayout());
-        JButton btnChange = new JButton("Change");
+        JButton btnPrev = new JButton("Prev");
+        JButton btnSave = new JButton("Save");
+        JButton btnNext = new JButton("Next");
+        panSouth.add(btnPrev);
+        panSouth.add(btnSave);
+        panSouth.add(btnNext);
+        c.add(panSouth,BorderLayout.SOUTH);
+
     }
 
     public PictureFrame(){
