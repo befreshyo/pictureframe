@@ -9,6 +9,70 @@
  * and its south section filled with a JPanel that holds the three buttons.
  */
 
-public class PictureFrame {
-    
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
+import javax.swing.JPanel;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
+import javax.swing.Action;
+import javax.swing.ButtonGroup;
+
+import java.awt.FlowLayout;
+import java.awt.Container;
+import java.awt.BorderLayout;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.awt.event.ActionEvent;
+
+public class PictureFrame extends JFrame{
+    public void setupMainMenu(){
+        JMenuBar mbar = new JMenuBar();
+        JMenu mnuFile = new JMenu("File");
+        JMenu mnuHelp = new JMenu("Help");
+        mbar.add(mnuFile);
+        mbar.add(mnuHelp);
+        JMenuItem miSave = new JMenuItem("Save");
+        JMenuItem miExit = new JMenuItem("Exit");
+        mnuFile.add(miSave);
+        mnuFile.add(miExit);
+        miExit.addActionListener(
+            new ActionListener(){
+                public void actionPerformed(ActionEvent e){
+                    System.exit(0);
+                }
+            }
+        );
+        JMenuItem miAbout = new JMenuItem("About");
+        miAbout.addActionListener(
+            new ActionListener(){
+                public void actionPerformed(ActionEvent e) {
+                    JOptionPane.showMessageDialog(null,"created by lala");
+                }
+            }
+        );
+        mnuHelp.add(miAbout);
+        setJMenuBar(mbar);
+    }
+
+    public void setupGUI(){
+        setTitle("menu and mouse app");     //always assumes this.setTitle if it does not have an object followed by a dot
+        setBounds(100,100,290,400);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setupMainMenu();
+        Container c = getContentPane();
+        c.setLayout(new BorderLayout());
+        JPanel panSouth = new JPanel();
+        panSouth.setLayout(new FlowLayout());
+        JButton btnChange = new JButton("Change");
+    }
+
+    public PictureFrame(){
+        setupGUI();
+    }
 }
