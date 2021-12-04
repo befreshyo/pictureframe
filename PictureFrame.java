@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class PictureFrame extends JFrame{
-    private PicturePanel panCenter;
+    private PicturePanel panNorth;
     public void setupMainMenu(){
         JMenuBar mbar = new JMenuBar();
         JMenu mnuFile = new JMenu("File");
@@ -94,8 +94,8 @@ public class PictureFrame extends JFrame{
         });
         c.add(panSouth,BorderLayout.SOUTH);
 
-        panCenter = new PicturePanel();
-        c.add(panCenter,BorderLayout.CENTER);
+        panNorth = new PicturePanel();
+        c.add(panNorth,BorderLayout.NORTH);
     }
     
     

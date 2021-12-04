@@ -21,6 +21,7 @@ public class PicturePanel extends JPanel implements MouseListener, MouseMotionLi
     private int msgX, msgY;
     //private ArrayList<Dot> dots;
     public PicturePanel(){
+        setPreferredSize(new Dimension(200,200));
         message = "(x=0, y=0)";
         addMouseListener(this);
         addMouseMotionListener(this);
@@ -42,21 +43,27 @@ public class PicturePanel extends JPanel implements MouseListener, MouseMotionLi
     }
     
     public void mousePressed(MouseEvent e){
+        //do nothing
     }
 
     public void mouseReleased(MouseEvent e){
+        //do nothing
     }
 
     public void mouseEntered(MouseEvent e){
+        //do nothing
     }
 
     public void mouseExited(MouseEvent e){
+        //do nothing
     }
 
     public void mouseMoved(MouseEvent e){
+        //do nothing
     }
 
     public void mouseDragged(MouseEvent e){
+        //do nothing
     }
     
 }
