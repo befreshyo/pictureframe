@@ -6,6 +6,7 @@
 
 import javax.swing.JPanel;
 import javax.swing.plaf.DimensionUIResource;
+import javax.swing.JOptionPane;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -15,11 +16,15 @@ import java.util.ArrayList;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+
+
 
 public class PicturePanel extends JPanel implements MouseListener, MouseMotionListener{
-    private String message; //will show on the panel
+    private String message;
     private int msgX, msgY;
-    //private ArrayList<Dot> dots;
+    private BufferedImage picture;
     public PicturePanel(){
         setPreferredSize(new Dimension(200,200));
         message = "(x=0, y=0)";
@@ -29,9 +34,15 @@ public class PicturePanel extends JPanel implements MouseListener, MouseMotionLi
         msgY = 20;
     }
 
+    public void setPicture(BufferedImage picture){
+        this.picture = picture;
+        repaint();
+     }
+
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
+        g.drawImage(picture,0,0,null);
         g.drawString(message,msgX,msgY);
     }
 

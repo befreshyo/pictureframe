@@ -13,5 +13,29 @@ import java.io.ObjectInputStream;
 import java.util.Scanner;
 
 public class PictureDataReader {
-    
+
+    public static ArrayList<PictureData> readPictureDataFromFile(){
+        try {
+            ArrayList<PictureData> pd = new ArrayList<PictureData>();
+            Scanner fsc = new Scanner(new File("descriptions.txt"));
+            String pic,num,desc;
+            String line;
+            String[] parts;
+            PictureData picData;
+            while (fsc.hasNextLine()) {
+                line = fsc.nextLine().trim();
+                if (line.length()>0) {
+                    parts = line.split("\t");
+                    pic = parts[0];
+                    num = parts[1];
+                    desc = parts[2];
+                    picData = new PictureData(pic,num,desc);
+                    pd.add(picData);
+                }
+            } return pd;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return null;
+        }
+    }
 }

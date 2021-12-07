@@ -23,6 +23,7 @@ import javax.swing.JRadioButton;
 import javax.swing.Action;
 import javax.swing.ButtonGroup;
 
+import java.awt.image.BufferedImage;
 import java.awt.FlowLayout;
 import java.awt.Container;
 import java.awt.BorderLayout;
@@ -32,6 +33,9 @@ import java.awt.event.ActionEvent;
 
 public class PictureFrame extends JFrame{
     private PicturePanel panNorth;
+    ArrayList <PictureData> pd = new ArrayList<PictureData>();
+    ArrayList <BufferedImage> loadImagesFromPictureData = new ArrayList<BufferedImage>();
+
     public void setupMainMenu(){
         JMenuBar mbar = new JMenuBar();
         JMenu mnuFile = new JMenu("File");
@@ -93,15 +97,16 @@ public class PictureFrame extends JFrame{
             }
         });
         c.add(panSouth,BorderLayout.SOUTH);
-
         panNorth = new PicturePanel();
         c.add(panNorth,BorderLayout.NORTH);
     }
     
-    
-    
-    public PictureFrame(){
+
+    public PictureFrame(ArrayList<PictureData> pd, ArrayList<BufferedImage> loadImagesFromPictureData){
+        this.pd = pd;
+        this.loadImagesFromPictureData = loadImagesFromPictureData;
         setupGUI();
+        panNorth.setPicture(loadImagesFromPictureData.get(0));
     }
 
 }
