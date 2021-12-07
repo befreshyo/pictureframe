@@ -82,17 +82,15 @@ public class PictureFrame extends JFrame{
         panSouth.add(btnPrev);
         btnPrev.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-/*                 System.out.println(currentIndex);
-                currentIndex = currentIndex - 1;
-                panNorth.setPicture(loadImagesFromPictureData.get(currentIndex));
-                if (currentIndex == 0){
+                if (currentIndex <= 0){
+                    currentIndex = 3;
                     System.out.println(currentIndex);
                     panNorth.setPicture(loadImagesFromPictureData.get(currentIndex));
-                    currentIndex = 0;
-                } else if (currentIndex == 0) {
+                } else {
+                    currentIndex = currentIndex - 1;
                     System.out.println(currentIndex);
                     panNorth.setPicture(loadImagesFromPictureData.get(currentIndex));
-                }*/
+                }
             } 
         });
         panSouth.add(btnSave);
