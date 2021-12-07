@@ -32,6 +32,7 @@ import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class PictureFrame extends JFrame{
+    int currentIndex = 0;
     private PicturePanel panNorth;
     ArrayList <PictureData> pd = new ArrayList<PictureData>();
     ArrayList <BufferedImage> loadImagesFromPictureData = new ArrayList<BufferedImage>();
@@ -81,8 +82,18 @@ public class PictureFrame extends JFrame{
         panSouth.add(btnPrev);
         btnPrev.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                //stuff here
-            }
+/*                 System.out.println(currentIndex);
+                currentIndex = currentIndex - 1;
+                panNorth.setPicture(loadImagesFromPictureData.get(currentIndex));
+                if (currentIndex == 0){
+                    System.out.println(currentIndex);
+                    panNorth.setPicture(loadImagesFromPictureData.get(currentIndex));
+                    currentIndex = 0;
+                } else if (currentIndex == 0) {
+                    System.out.println(currentIndex);
+                    panNorth.setPicture(loadImagesFromPictureData.get(currentIndex));
+                }*/
+            } 
         });
         panSouth.add(btnSave);
         btnSave.addActionListener(new ActionListener(){
@@ -93,7 +104,15 @@ public class PictureFrame extends JFrame{
         panSouth.add(btnNext);
         btnNext.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                //stuff here
+                if (currentIndex >= 3){
+                    currentIndex = 0;
+                    System.out.println(currentIndex);
+                    panNorth.setPicture(loadImagesFromPictureData.get(currentIndex));
+                } else {
+                    currentIndex = currentIndex + 1;
+                    System.out.println(currentIndex);
+                    panNorth.setPicture(loadImagesFromPictureData.get(currentIndex));
+                }
             }
         });
         c.add(panSouth,BorderLayout.SOUTH);
