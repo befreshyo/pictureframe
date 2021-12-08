@@ -5,24 +5,24 @@ import java.util.ArrayList;
  */
 
 public class PictureData {
-    private String pic;
-    private String num;
+    private String file;
+    private String date;
     private String desc;
     
-    public String getPic() {
-        return pic;
+    public String getFile() {
+        return file;
     }
 
-    public void setPic(String pic) {
-        this.pic = pic;
+    public void setFile(String file) {
+        this.file = file;
     }
 
-    public String getNum() {
-        return num;
+    public String getDate() {
+        return date;
     }
 
-    public void setNum(String num) {
-        this.num = num;
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public String getDesc() {
@@ -33,15 +33,15 @@ public class PictureData {
         this.desc = desc;
     }
 
-    public PictureData(String pic, String num, String desc) {
-        this.pic = pic;
-        this.num = num;
+    public PictureData(String file, String date, String desc) {
+        this.file = file;
+        this.date = date;
         this.desc = desc;
     }
 
     @Override
     public String toString() {
-        return String.format("%d %d %d", pic, num, desc);
+        return String.format("%d %d %d", file, date, desc);
     }
     
 }
