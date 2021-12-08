@@ -70,7 +70,6 @@ public class PictureFrame extends JFrame{
     }
 
     public void setupMainMenu(){
-        System.out.println(pdDataLine.getDate());
         JMenuBar mbar = new JMenuBar();
         JMenu mnuFile = new JMenu("File");
         JMenu mnuHelp = new JMenu("Help");
@@ -130,7 +129,7 @@ public class PictureFrame extends JFrame{
         panSouth.add(btnSave);
         btnSave.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                //stuff here
+                saveData(date.getText(), desc.getText());
             }
         });
         panSouth.add(btnNext);
