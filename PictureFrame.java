@@ -7,6 +7,15 @@
  * with its north section filled with a JTextField for holding the date, 
  * its center section filled with the description JTextArea, 
  * and its south section filled with a JPanel that holds the three buttons.
+ * 
+ * 
+ * north - picpanel
+ * center - picframe
+ *  - jpanel:
+ *      borderlayout:
+ *      north - JTextField
+ *      center - JTextArea
+ *      south - filled with a JPanel that holds the three buttons
  */
 
 import javax.swing.JFrame;
@@ -40,12 +49,12 @@ public class PictureFrame extends JFrame{
     private PicturePanel panNorth;
     ArrayList<PictureData> pd = PictureDataReader.readPictureDataFromFile("descriptions.txt");
     ArrayList<BufferedImage> loadImagesFromPictureData = PictureLoader.loadImagesFromPictureData(pd);
-    PictureData boop = pd.get(currentIndex);
+    PictureData pdDataLine = pd.get(currentIndex);
 
     public void setData(int currentIndex){
-        PictureData boop = pd.get(currentIndex);
-        date.setText(boop.getDate());
-        desc.setText(boop.getDesc());
+        PictureData pdDataLine = pd.get(currentIndex);
+        date.setText(pdDataLine.getDate());
+        desc.setText(pdDataLine.getDesc());
 
     }
 
@@ -54,7 +63,14 @@ public class PictureFrame extends JFrame{
         setData(currentIndex);
     }
 
+    public void saveData(String date, String desc){
+        pd.get(currentIndex).setDate(date);
+        pd.get(currentIndex).setDesc(desc);
+        PictureDataWriter.writeToFile(pd,"descriptions.txt");
+    }
+
     public void setupMainMenu(){
+        System.out.println(pdDataLine.getDate());
         JMenuBar mbar = new JMenuBar();
         JMenu mnuFile = new JMenu("File");
         JMenu mnuHelp = new JMenu("Help");
@@ -65,11 +81,7 @@ public class PictureFrame extends JFrame{
         mnuFile.add(miSave);
         miSave.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                ArrayList<PictureData> pd = panNorth.getPD();
-                JFileChooser jfc = new JFileChooser();
-                if (jfc.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
-                    PictureDataWriter.writeToFile(pd, jfc.getSelectedFile());
-                }
+                saveData(date.getText(), desc.getText());
             }
         }
         );
