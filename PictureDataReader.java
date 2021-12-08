@@ -4,12 +4,7 @@
  */
 
 import java.util.ArrayList;
-import java.beans.XMLDecoder;
-import java.io.BufferedInputStream;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.ObjectInput;
-import java.io.ObjectInputStream;
 import java.util.Scanner;
 
 public class PictureDataReader {

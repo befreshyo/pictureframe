@@ -19,24 +19,18 @@
  */
 
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
-import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
-import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
-import javax.swing.Action;
-import javax.swing.ButtonGroup;
 
 import java.awt.image.BufferedImage;
 import java.awt.FlowLayout;
 import java.awt.Container;
-import java.awt.Dimension;
 import java.awt.BorderLayout;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;

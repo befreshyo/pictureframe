@@ -1,15 +1,7 @@
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.imageio.ImageIO;
-
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Font;
 import java.awt.image.BufferedImage;
-
 import java.io.File;
-import java.io.ObjectInputStream.GetField;
 
 /**
  * You create PictureLoader with a loadImagesFromPictureData function that returns an ArrayList<BufferedImage>. 

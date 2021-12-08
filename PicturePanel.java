@@ -5,18 +5,12 @@
  */
 
 import javax.swing.JPanel;
-import javax.swing.plaf.DimensionUIResource;
-import javax.swing.JOptionPane;
-
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.Image;
 import java.awt.image.BufferedImage;
 
 
