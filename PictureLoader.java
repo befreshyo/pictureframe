@@ -22,7 +22,7 @@ public class PictureLoader {
         try {
             ArrayList<BufferedImage> picture = new ArrayList<BufferedImage>();
             for (PictureData p: pd) {
-                BufferedImage img = ImageIO.read(new File(p.getPic()));
+                BufferedImage img = ImageIO.read(new File(p.getFile()));
                 picture.add(img);     
             }
             return picture;
