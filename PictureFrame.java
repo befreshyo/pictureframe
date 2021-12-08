@@ -20,12 +20,14 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
+import javax.swing.JTextArea;
 import javax.swing.Action;
 import javax.swing.ButtonGroup;
 
 import java.awt.image.BufferedImage;
 import java.awt.FlowLayout;
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.BorderLayout;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -33,9 +35,24 @@ import java.awt.event.ActionEvent;
 
 public class PictureFrame extends JFrame{
     int currentIndex = 0;
+    private JTextField date;
+    private JTextArea desc;
     private PicturePanel panNorth;
-    ArrayList <PictureData> pd = new ArrayList<PictureData>();
-    ArrayList <BufferedImage> loadImagesFromPictureData = new ArrayList<BufferedImage>();
+    ArrayList<PictureData> pd = PictureDataReader.readPictureDataFromFile("descriptions.txt");
+    ArrayList<BufferedImage> loadImagesFromPictureData = PictureLoader.loadImagesFromPictureData(pd);
+    PictureData boop = pd.get(currentIndex);
+
+    public void setData(int currentIndex){
+        PictureData boop = pd.get(currentIndex);
+        date.setText(boop.getDate());
+        desc.setText(boop.getDesc());
+
+    }
+
+    public void setPictureAndData(int currentIndex){
+        panNorth.setPicture(loadImagesFromPictureData.get(currentIndex));
+        setData(currentIndex);
+    }
 
     public void setupMainMenu(){
         JMenuBar mbar = new JMenuBar();
@@ -48,9 +65,14 @@ public class PictureFrame extends JFrame{
         mnuFile.add(miSave);
         miSave.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                //stuff here
+                ArrayList<PictureData> pd = panNorth.getPD();
+                JFileChooser jfc = new JFileChooser();
+                if (jfc.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
+                    PictureDataWriter.writeToFile(pd, jfc.getSelectedFile());
+                }
             }
-        });
+        }
+        );
         mnuFile.add(miExit);
         miExit.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
@@ -74,6 +96,8 @@ public class PictureFrame extends JFrame{
         setupMainMenu();
         Container c = getContentPane();
         c.setLayout(new BorderLayout());
+        JPanel panCenter = new JPanel();
+        panCenter.setLayout(new BorderLayout());
         JPanel panSouth = new JPanel();
         panSouth.setLayout(new FlowLayout());
         JButton btnPrev = new JButton("Prev");
@@ -84,12 +108,10 @@ public class PictureFrame extends JFrame{
             public void actionPerformed(ActionEvent e){
                 if (currentIndex <= 0){
                     currentIndex = 3;
-                    System.out.println(currentIndex);
-                    panNorth.setPicture(loadImagesFromPictureData.get(currentIndex));
+                    setPictureAndData(currentIndex);
                 } else {
                     currentIndex = currentIndex - 1;
-                    System.out.println(currentIndex);
-                    panNorth.setPicture(loadImagesFromPictureData.get(currentIndex));
+                    setPictureAndData(currentIndex);
                 }
             } 
         });
@@ -104,26 +126,28 @@ public class PictureFrame extends JFrame{
             public void actionPerformed(ActionEvent e){
                 if (currentIndex >= 3){
                     currentIndex = 0;
-                    System.out.println(currentIndex);
-                    panNorth.setPicture(loadImagesFromPictureData.get(currentIndex));
+                    setPictureAndData(currentIndex);
                 } else {
                     currentIndex = currentIndex + 1;
-                    System.out.println(currentIndex);
-                    panNorth.setPicture(loadImagesFromPictureData.get(currentIndex));
+                    setPictureAndData(currentIndex);
                 }
             }
         });
-        c.add(panSouth,BorderLayout.SOUTH);
         panNorth = new PicturePanel();
         c.add(panNorth,BorderLayout.NORTH);
+        c.add(panCenter,BorderLayout.CENTER);
+        date = new JTextField(20);
+        desc = new JTextArea(1,1);
+        desc.setLineWrap(true);
+        panCenter.add(date,BorderLayout.NORTH);
+        panCenter.add(desc,BorderLayout.CENTER);
+        panCenter.add(panSouth,BorderLayout.SOUTH);
+
     }
     
-
-    public PictureFrame(ArrayList<PictureData> pd, ArrayList<BufferedImage> loadImagesFromPictureData){
-        this.pd = pd;
-        this.loadImagesFromPictureData = loadImagesFromPictureData;
+    public PictureFrame(){
         setupGUI();
-        panNorth.setPicture(loadImagesFromPictureData.get(0));
+        setPictureAndData(currentIndex);
     }
 
 }
