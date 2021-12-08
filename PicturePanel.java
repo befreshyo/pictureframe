@@ -22,6 +22,7 @@ import java.awt.image.BufferedImage;
 
 
 public class PicturePanel extends JPanel implements MouseListener, MouseMotionListener{
+    private ArrayList<PictureData> pd;
     private String message;
     private int msgX, msgY;
     private BufferedImage picture;
@@ -32,6 +33,7 @@ public class PicturePanel extends JPanel implements MouseListener, MouseMotionLi
         addMouseMotionListener(this);
         msgX = 10;
         msgY = 20;
+        pd = new ArrayList<PictureData>();
     }
 
     public void setPicture(BufferedImage picture){
@@ -75,6 +77,13 @@ public class PicturePanel extends JPanel implements MouseListener, MouseMotionLi
 
     public void mouseDragged(MouseEvent e){
         //do nothing
+    }
+
+    public ArrayList<PictureData> getPD() {
+        return pd;
+    }
+    public void setDots(ArrayList<PictureData> pd) {
+        this.pd = pd;
     }
     
 }
