@@ -3,9 +3,7 @@ import java.util.ArrayList;
 import java.awt.image.BufferedImage;
 public class App {
     public static void main(String[] args) {
-        ArrayList<PictureData> pd = PictureDataReader.readPictureDataFromFile();
-        ArrayList<BufferedImage> bImage = PictureLoader.loadImagesFromPictureData(pd);
-        PictureFrame tf = new PictureFrame(pd,bImage);
+        PictureFrame tf = new PictureFrame();
         tf.setVisible(true);
     }
     
