@@ -41,18 +41,15 @@ public class PictureFrame extends JFrame{
      * sets the date and desc at the current index
      * and is passed through to setpictureanddata
      */
-
     public void setData(int currentIndex){
         PictureData pdDataLine = pd.get(currentIndex);
         date.setText(pdDataLine.getDate());
         desc.setText(pdDataLine.getDesc());
-
     }
 
     /**
      * sets the picture and data at the current index
      */
-
     public void setPictureAndData(int currentIndex){
         panNorth.setPicture(loadImagesFromPictureData.get(currentIndex));
         setData(currentIndex);
@@ -62,7 +59,6 @@ public class PictureFrame extends JFrame{
      * saves data to the filename by using setdate and set desc functions
      * then PictureDataWriter.writeToFile uses data to write file
      */
-
     public void saveData(String date, String desc){
         pd.get(currentIndex).setDate(date);
         pd.get(currentIndex).setDesc(desc);
