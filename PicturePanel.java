@@ -12,8 +12,6 @@ import java.awt.image.BufferedImage;
  * creates a string that is a message that will be displayed in the gui
  * msgX, msgY wil be used in creating the message indicating the X and Y coordinates of mousemovent
  */
-
-
 public class PicturePanel extends JPanel implements MouseListener, MouseMotionListener{
     private ArrayList<PictureData> pd;
     private BufferedImage picture;
@@ -27,7 +25,6 @@ public class PicturePanel extends JPanel implements MouseListener, MouseMotionLi
      * msgX, msgY are set to 10 and 20 initially 
      * pd creates a new arraylist
      */
-    
     public PicturePanel(){
         setPreferredSize(new Dimension(200,200));
         message = "(x=0, y=0)";
@@ -41,7 +38,6 @@ public class PicturePanel extends JPanel implements MouseListener, MouseMotionLi
     /**
      * buffered image picture is set to the picture data and repaints based upon results 
      */
-
     public void setPicture(BufferedImage picture){
         this.picture = picture;
         repaint();
@@ -51,7 +47,6 @@ public class PicturePanel extends JPanel implements MouseListener, MouseMotionLi
       * paintComponent will use drawImage to diplay the picture
       * drawString will use the message, msgX, msgY to display the mouse movement results 
       */
-
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -62,7 +57,6 @@ public class PicturePanel extends JPanel implements MouseListener, MouseMotionLi
     /**
      * displays mouse movement if mouse is clicked 
      */
-
     public void mouseClicked(MouseEvent e){
         message = String.format("(x=%d, y=%d)", e.getX(), e.getY());
         msgX = e.getX();
@@ -93,5 +87,4 @@ public class PicturePanel extends JPanel implements MouseListener, MouseMotionLi
     public void mouseDragged(MouseEvent e){
         //do nothing
     }
-    
 }
