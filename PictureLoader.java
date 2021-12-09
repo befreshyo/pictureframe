@@ -4,8 +4,11 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 
 /**
- * You create PictureLoader with a loadImagesFromPictureData function that returns an ArrayList<BufferedImage>. 
- * This function loads the images identified by the filename of each PictureData object into memory so that you can display them.
+ * pictureloader - loadImagesFromPictureData calls the arraylist pd containing the data of the file
+ * it will try to (else return null) create an arraylist bufferedimage to contain buffered image data of the picture file name
+ * for each line in the array list pd,
+ * ImageIO.read will read each filename of that line
+ * and add to the BufferedImage arraylist
  */
 
 public class PictureLoader {

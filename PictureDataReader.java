@@ -1,6 +1,12 @@
 /**
- * You create PictureDataReader with a readPictureDataFromFile function that returns an ArrayList<PictureData>. 
- * You call it near the beginning of your program to create the PictureDataReader objects that will serve as the model for your application.
+ * reads data from the file provided
+ * opens up file
+ * per each line of the file
+ * seperates line of file into parts by tab
+ * sets file,date,desc to each part of the line
+ * creates a new picture data containing the file,date,desc
+ * adds data 
+ * returns array of data
  */
 
 import java.util.ArrayList;

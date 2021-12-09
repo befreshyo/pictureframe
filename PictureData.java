@@ -1,5 +1,7 @@
 /**
- * You define PictureData with the necessary data attributes, getters, setters, constructors, and toString function.
+ * sets picturedata with the data attributes, getters, setters, constructors, and toString function.
+ * file,date,desc are set in order to be used in other parts of program
+ * the set functions allow the save to override the information in the text file
  */
 
 public class PictureData {
