@@ -14,7 +14,6 @@ import java.io.File;
 import java.util.Scanner;
 
 public class PictureDataReader {
-
     public static ArrayList<PictureData> readPictureDataFromFile(String fname){
         try {
             ArrayList<PictureData> pd = new ArrayList<PictureData>();
