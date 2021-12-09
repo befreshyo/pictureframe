@@ -12,7 +12,6 @@ import java.io.File;
  */
 
 public class PictureLoader {
-
     public static ArrayList<BufferedImage> loadImagesFromPictureData(ArrayList<PictureData> pd){
         try {
             ArrayList<BufferedImage> picture = new ArrayList<BufferedImage>();
@@ -26,5 +25,4 @@ public class PictureLoader {
             return null;
         }
     }
-    
 }
